@@ -1,9 +1,7 @@
 const Loan = require("../models/Loan");
 const User = require("../models/User");
 
-// @desc    Create a new loan
-// @route   POST /api/loans
-// @access  Private
+// Create a new loan
 exports.createLoan = async (req, res) => {
     const { amount, purpose } = req.body;
     const userId = req.user.id; // Extracted from JWT token
@@ -32,9 +30,7 @@ exports.createLoan = async (req, res) => {
     }
 };
 
-// @desc    Get all loans for the logged-in user
-// @route   GET /api/loans
-// @access  Private
+// Get all loans for the logged-in user
 exports.getLoans = async (req, res) => {
     const userId = req.user.id; // Extracted from JWT token
 
@@ -48,9 +44,7 @@ exports.getLoans = async (req, res) => {
     }
 };
 
-// @desc    Get a single loan by ID
-// @route   GET /api/loans/:id
-// @access  Private
+// Get a single loan by ID
 exports.getLoanById = async (req, res) => {
     const loanId = req.params.id;
     const userId = req.user.id; // Extracted from JWT token
@@ -69,9 +63,7 @@ exports.getLoanById = async (req, res) => {
     }
 };
 
-// @desc    Update a loan
-// @route   PUT /api/loans/:id
-// @access  Private
+// Update a loan
 exports.updateLoan = async (req, res) => {
     const loanId = req.params.id;
     const userId = req.user.id; // Extracted from JWT token
@@ -98,9 +90,7 @@ exports.updateLoan = async (req, res) => {
     }
 };
 
-// @desc    Delete a loan
-// @route   DELETE /api/loans/:id
-// @access  Private
+// Delete a loan
 exports.deleteLoan = async (req, res) => {
     const loanId = req.params.id;
     const userId = req.user.id; // Extracted from JWT token

@@ -6,29 +6,19 @@ const authMiddleware = require("../middleware/authMiddleware");
 // Apply authentication middleware to all loan routes
 router.use(authMiddleware);
 
-// @route   POST /api/loans
-// @desc    Create a new loan
-// @access  Private
+// POST /api/loans - Create a new loan
 router.post("/", loanController.createLoan);
 
-// @route   GET /api/loans
-// @desc    Get all loans for the logged-in user
-// @access  Private
+// GET /api/loans - Get all loans for the logged-in user
 router.get("/", loanController.getLoans);
 
-// @route   GET /api/loans/:id
-// @desc    Get a single loan by ID
-// @access  Private
+// GET /api/loans/:id - Get a single loan by ID
 router.get("/:id", loanController.getLoanById);
 
-// @route   PUT /api/loans/:id
-// @desc    Update a loan
-// @access  Private
+// PUT /api/loans/:id - Update a loan
 router.put("/:id", loanController.updateLoan);
 
-// @route   DELETE /api/loans/:id
-// @desc    Delete a loan
-// @access  Private
+// DELETE /api/loans/:id - Delete a loan
 router.delete("/:id", loanController.deleteLoan);
 
 module.exports = router;
