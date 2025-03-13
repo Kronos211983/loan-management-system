@@ -40,7 +40,11 @@
                     },
                     body: JSON.stringify({ amount, purpose }),
                 });
+
+                console.log("Response status:", response.status); // Debugging
                 const data = await response.json();
+                console.log("Response data:", data); // Debugging
+
                 if (response.ok) {
                     alert("Loan application submitted successfully!");
                     document.getElementById("loanForm").reset();
@@ -48,7 +52,7 @@
                     alert(data.message || "Loan submission failed");
                 }
             } catch (err) {
-                console.error("Error:", err);
+                console.error("Error:", err); // Debugging
                 alert("An error occurred. Please try again.");
             }
         });
