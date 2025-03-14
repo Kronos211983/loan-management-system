@@ -1,24 +1,20 @@
 // server.js
+require('dotenv').config(); // Load environment variables from .env
 const express = require('express');
 const connectDB = require('./config/db');
-const authRoutes = require('./routes/authRoutes');
-const loanRoutes = require('./routes/loanRoutes');
-const { errorHandler } = require('./middleware/errorHandler');
 
 const app = express();
 
 // Connect to MongoDB
 connectDB();
 
-// Middleware
+// Middleware to parse JSON requests
 app.use(express.json());
 
 // Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/loans', loanRoutes);
-
-// Error handling
-app.use(errorHandler);
+app.get('/', (req, res) => {
+  res.send('Loan Management System Backend is running!');
+});
 
 // Start the server
 const PORT = process.env.PORT || 5000;
